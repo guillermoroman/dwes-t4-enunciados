@@ -3,7 +3,7 @@ session_start();
 
 // Inicializar la palabra secreta si no existe
 if (!isset($_SESSION['palabra_secreta'])) {
-    $_SESSION['palabra_secreta'] = 'PHP';
+    $_SESSION['palabra_secreta'] = 'TUNIVERS';
     $_SESSION['intentos_restantes'] = 6;
     $_SESSION['letras_adivinadas'] = [];
     $_SESSION['palabra_actual'] = str_repeat('_', strlen($_SESSION['palabra_secreta']));
@@ -25,7 +25,7 @@ $letras_adivinadas = implode(', ', $_SESSION['letras_adivinadas']);
     <h1>Juego del Ahorcado</h1>
     <p>Palabra: <?= $palabra_actual ?></p>
     <p>Intentos restantes: <?= $intentos_restantes ?></p>
-    <p>Letras adivinadas: <?= $letras_adivinadas ?></p>
+    <p>Letras utilizadas: <?= $letras_adivinadas ?></p>
 
     <?php if ($intentos_restantes > 0 && strpos($palabra_actual, '_') !== false): ?>
         <form action="procesar.php" method="POST">
